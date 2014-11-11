@@ -9,11 +9,19 @@ using UnityEngine;
 
 public class Arduino 
 {
-	public bool detected = false;
-	public bool enabled = true;
+	// Stack overflow
 	private SerialPort stream;
 	private StreamReader IN;
+	
+	// Raw data
 	private String[] input;
+
+	// 
+	public bool detected = false;
+	public bool enabled = true;
+	
+	//
+	private bool[] buttons;
 
 	// Singleton
 	private static Arduino _singleton = null;
@@ -45,6 +53,8 @@ public class Arduino
 			stream.Open();
 			IN = new StreamReader(stream.BaseStream);
 			IN.ReadLine();
+
+			buttons = new bool[] { false, false, false };
 		}
 	}
 
@@ -60,6 +70,21 @@ public class Arduino
 	public bool Button (int number)
 	{
 		return int.Parse(input[number-1]) == 1;
+	}
+
+	public bool ButtonPressed (int number)
+	{
+		if (Button(number)) 
+		{
+			if (buttons[number - 1] == false) 
+			{
+				buttons[number - 1] = true;
+				return true;
+			} 
+		} else {
+			buttons[number - 1] = false;
+		}
+		return false;
 	}
 
 	// [1, 2, 3]
@@ -79,4 +104,5 @@ public class Arduino
 	{
 		return int.Parse(input[8 + number-1]) / 100f;
 	}
+
 }

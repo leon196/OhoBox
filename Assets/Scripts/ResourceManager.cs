@@ -17,7 +17,7 @@ public class ResourceManager
 	private Material _material = null;
 	public Material Material {
 		get {
-			if (_material == null) _material = Resources.Load("Material") as Material;
+			if (_material == null) _material = Resources.Load("Materials/Material") as Material;
 			return _material;
 		}
 	}
@@ -26,7 +26,7 @@ public class ResourceManager
 	private GameObject _leaf = null;
 	public GameObject Leaf {
 		get {
-			if (_leaf == null) _leaf = Resources.Load("Leaf") as GameObject;
+			if (_leaf == null) _leaf = Resources.Load("Prefabs/Leaf") as GameObject;
 			return _leaf;
 		}
 	}
@@ -35,7 +35,7 @@ public class ResourceManager
 	private GameObject _plane = null;
 	public GameObject Fragment {
 		get {
-			if (_plane == null) _plane = Resources.Load("Fragment") as GameObject;
+			if (_plane == null) _plane = Resources.Load("Prefabs/Fragment") as GameObject;
 			return _plane;
 		}
 	}
@@ -44,7 +44,7 @@ public class ResourceManager
 	private GameObject _wormShit = null;
 	public GameObject WormShit {
 		get {
-			if (_wormShit == null) _wormShit = Resources.Load("WormShit") as GameObject;
+			if (_wormShit == null) _wormShit = Resources.Load("Prefabs/WormShit") as GameObject;
 			return _wormShit;
 		}
 	}
@@ -53,7 +53,7 @@ public class ResourceManager
 	private GameObject _flower = null;
 	public GameObject Flower {
 		get {
-			if (_flower == null) _flower = Resources.Load("Flower") as GameObject;
+			if (_flower == null) _flower = Resources.Load("Prefabs/Flower") as GameObject;
 			return _flower;
 		}
 	}
